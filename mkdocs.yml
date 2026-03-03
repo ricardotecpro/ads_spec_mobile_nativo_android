@@ -5,19 +5,24 @@ repo_name: ricardotecpro/ads_spec_mobile_nativo_kotlin_swift
 theme:
   name: material
   language: pt-BR
-  favicon: assets/images/logo.png
-  logo: assets/images/logo.png
+  favicon: assets/images/logo.svg
+  logo: assets/images/logo.svg
   custom_dir: overrides
   features:
     - navigation.tracking
     - navigation.tabs
+    - navigation.sections
+    - navigation.path
     - navigation.expand
     - navigation.top
     - navigation.footer
     - navigation.indexes
+    - navigation.instant
+    - navigation.prune
     - toc.follow
     - content.code.copy
     - content.code.annotate
+    - search.share
     - search.suggest
     - search.highlight
   palette:
@@ -39,6 +44,9 @@ theme:
         name: Mudar para modo claro
   icon:
     repo: fontawesome/brands/github
+  font:
+    text: Roboto
+    code: Roboto Mono
 
 markdown_extensions:
   - pymdownx.critic
@@ -69,15 +77,19 @@ markdown_extensions:
       base_path: docs
   - pymdownx.arithmatex:
       generic: true
-
+  - pymdownx.tasklist:
+      custom_checkbox: true
 
 plugins:
+  - social:
+      cards: false
+  - tags
   - mkdocs-revealjs
   - search:
       lang: pt
   - mkdocs-jupyter
   - glightbox
-  - mkdocs_quiz
+  - awesome-pages
   - git-authors:
       show_contribution: true
       show_line_count: true
@@ -101,13 +113,23 @@ plugins:
       match_path: .*
       date_from_meta:
         datetime_format: '%Y-%m-%d %H:%M:%S'
+  - minify:
+      minify_html: true
+      minify_js: true
+      minify_css: true
   - print-site:
       add_to_navigation: false
-      # print_page_rel_path: 'print_page.md' # Deprecated or invalid
       print_page_title: 'Versão para Impressão'
       add_print_site_banner: false
       enumerate_headings: false
       enumerate_figures: false
+
+exclude_docs: |
+  quizzes/src/*
+  slides/src/*
+  slides/slide-*.md
+  audit.md
+  **/.src/*
 
 hooks:
   - hooks/copy_slides.py
@@ -120,13 +142,11 @@ extra_css:
 
 extra_javascript:
   - assets/js/quiz.js
-  - https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js
+  - https://unpkg.com/mermaid@11.12.3/dist/mermaid.min.js
   - assets/js/mermaid-init.js
   - assets/js/custom_termynal.js
   - assets/js/mathjax.js
-  - https://polyfill.io/v3/polyfill.min.js?features=es6
-  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-  - https://cdn.jsdelivr.net/npm/termynal/termynal.min.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
 
 extra:
   social:
@@ -136,34 +156,62 @@ extra:
       link: https://linkedin.com/in/ricardotecpro
     - icon: fontawesome/solid/globe
       link: https://ricardotecpro.github.io/
-  version:
-    provider: mike
-    default: estavel
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/@ricardotecpro
+    - icon: fontawesome/brands/x-twitter
+      link: https://twitter.com/ricardotecpro
 
 
 nav:
-  - Início: index.md
-  - Plano de Ensino: plano-ensino.md
+  - Principal:
+    - Curso: index.md
+    - Sobre: sobre.md
+    - Roadmap: project_roadmap.md
+    - Plano: plano-ensino.md
   - Aulas:
-      - 'Índice': aulas/index.md
+    - aulas/index.md
+    - Trilha 1 – Fundamentos e UI:
       - 'Aula 01 - Intro Mobile': aulas/aula-01.md
       - 'Aula 02 - Java vs Swift': aulas/aula-02.md
       - 'Aula 03 - Intro Kotlin': aulas/aula-03.md
       - 'Aula 04 - Estrutura App': aulas/aula-04.md
+    - Trilha 2 – Arquitetura e Dados:
       - 'Aula 05 - Interface (UI)': aulas/aula-05.md
       - 'Aula 06 - Navegação': aulas/aula-06.md
       - 'Aula 07 - Arquitetura MVVM': aulas/aula-07.md
       - 'Aula 08 - Persistência': aulas/aula-08.md
+    - Trilha 3 – Listas e Networking:
       - 'Aula 09 - RecyclerView': aulas/aula-09.md
       - 'Aula 10 - API REST': aulas/aula-10.md
       - 'Aula 11 - Threads/Async': aulas/aula-11.md
       - 'Aula 12 - UX/Material': aulas/aula-12.md
+    - Trilha 4 – Hardware e Lançamento:
       - 'Aula 13 - Sensores': aulas/aula-13.md
       - 'Aula 14 - Testes/Debug': aulas/aula-14.md
       - 'Aula 15 - Publicação': aulas/aula-15.md
       - 'Aula 16 - Projeto Final': aulas/aula-16.md
-  - Exercícios:
-      - 'Índice': exercicios/index.md
+  - Materiais:
+    - materiais.md
+    - Slides:
+      - slides/index.md
+      - 'Slide 01 - Intro Mobile': slides/slide-01.html
+      - 'Slide 02 - Java vs Swift': slides/slide-02.html
+      - 'Slide 03 - Intro Kotlin': slides/slide-03.html
+      - 'Slide 04 - Estrutura App': slides/slide-04.html
+      - 'Slide 05 - Interface (UI)': slides/slide-05.html
+      - 'Slide 06 - Navegação': slides/slide-06.html
+      - 'Slide 07 - Arquitetura MVVM': slides/slide-07.html
+      - 'Slide 08 - Persistência': slides/slide-08.html
+      - 'Slide 09 - RecyclerView': slides/slide-09.html
+      - 'Slide 10 - API REST': slides/slide-10.html
+      - 'Slide 11 - Threads/Async': slides/slide-11.html
+      - 'Slide 12 - UX/Material': slides/slide-12.html
+      - 'Slide 13 - Sensores': slides/slide-13.html
+      - 'Slide 14 - Testes/Debug': slides/slide-14.html
+      - 'Slide 15 - Publicação': slides/slide-15.html
+      - 'Slide 16 - Projeto Final': slides/slide-16.html
+    - Exercícios:
+      - exercicios/index.md
       - 'Ex 01': exercicios/exercicio-01.md
       - 'Ex 02': exercicios/exercicio-02.md
       - 'Ex 03': exercicios/exercicio-03.md
@@ -180,15 +228,8 @@ nav:
       - 'Ex 14': exercicios/exercicio-14.md
       - 'Ex 15': exercicios/exercicio-15.md
       - 'Ex 16': exercicios/exercicio-16.md
-  - Projetos:
-      - 'Índice': projetos/index.md
-      - 'Proj 01': projetos/projeto-01.md
-      - 'Proj 02': projetos/projeto-02.md
-      - 'Proj 03': projetos/projeto-03.md
-      - 'Proj 04': projetos/projeto-04.md
-      - 'Proj 05 - Final': projetos/projeto-05.md
-  - Quizzes:
-      - 'Índice': quizzes/index.md
+    - Quizzes:
+      - quizzes/index.md
       - 'Quiz 01': quizzes/quiz-01.md
       - 'Quiz 02': quizzes/quiz-02.md
       - 'Quiz 03': quizzes/quiz-03.md
@@ -205,26 +246,26 @@ nav:
       - 'Quiz 14': quizzes/quiz-14.md
       - 'Quiz 15': quizzes/quiz-15.md
       - 'Quiz 16': quizzes/quiz-16.md
-  - Slides:
-      - 'Índice': slides/index.md
-      - 'Slide 01': slides/slide-01.md
-      - 'Slide 02': slides/slide-02.md
-      - 'Slide 03': slides/slide-03.md
-      - 'Slide 04': slides/slide-04.md
-      - 'Slide 05': slides/slide-05.md
-      - 'Slide 06': slides/slide-06.md
-      - 'Slide 07': slides/slide-07.md
-      - 'Slide 08': slides/slide-08.md
-      - 'Slide 09': slides/slide-09.md
-      - 'Slide 10': slides/slide-10.md
-      - 'Slide 11': slides/slide-11.md
-      - 'Slide 12': slides/slide-12.md
-      - 'Slide 13': slides/slide-13.md
-      - 'Slide 14': slides/slide-14.md
-      - 'Slide 15': slides/slide-15.md
-      - 'Slide 16': slides/slide-16.md
-  - Configuração:
-      - 'Índice': setups/index.md
+    - Projetos:
+      - projetos/index.md
+      - 'Proj 01': projetos/projeto-01.md
+      - 'Proj 02': projetos/projeto-02.md
+      - 'Proj 03': projetos/projeto-03.md
+      - 'Proj 04': projetos/projeto-04.md
+      - 'Proj 05': projetos/projeto-05.md
+      - 'Proj 06': projetos/projeto-06.md
+      - 'Proj 07': projetos/projeto-07.md
+      - 'Proj 08': projetos/projeto-08.md
+      - 'Proj 09': projetos/projeto-09.md
+      - 'Proj 10': projetos/projeto-10.md
+      - 'Proj 11': projetos/projeto-11.md
+      - 'Proj 12': projetos/projeto-12.md
+      - 'Proj 13': projetos/projeto-13.md
+      - 'Proj 14': projetos/projeto-14.md
+      - 'Proj 15': projetos/projeto-15.md
+      - 'Proj 16': projetos/projeto-16.md
+    - Configuração:
+      - setups/index.md
       - 'Setup 01 - Android': setups/setup-01.md
       - 'Setup 02 - iOS': setups/setup-02.md
       - 'Setup 03 - Flutter': setups/setup-03.md
@@ -235,8 +276,4 @@ nav:
       - 'Setup 08 - Flutter Doctor': setups/setup-08.md
       - 'Setup 09 - Ionic/Capacitor': setups/setup-09.md
       - 'Setup 10 - Emulação Avançada': setups/setup-10.md
-  - Sobre:
-      - 'O Curso': sobre.md
-      - 'Roadmap': project_roadmap.md
-      - 'Materiais Extras': materiais.md
-  - Impressão: print_page.md
+  - Impresso: print_page.md

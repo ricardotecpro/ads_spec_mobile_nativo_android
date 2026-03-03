@@ -11,7 +11,7 @@ Domine a criação de aplicativos profissionais para Android e entenda como as m
 
 <div class="grid cards" markdown>
 
--   :material-book-open-variant: **Aulas Teóricas**
+-   :material-book-open-variant: **Trilha de Aulas**
     ---
     Conteúdo detalhado de todas as 16 aulas do curso.
     [:octicons-arrow-right-24: Ver Aulas](aulas/index.md)
@@ -47,31 +47,19 @@ Domine a criação de aplicativos profissionais para Android e entenda como as m
 
 ## 📚 Jornada de Aprendizado (16 Aulas)
 
-O curso é estruturado em quatro trilhas de especialização.
+O curso é estruturado em quatro trilhas de especialização para ir do zero ao aplicativo distribuído na loja.
 
-### 🧱 Trilha 1: Fundamentos e UI (Aulas 01-04)
-*   [Aula 01 - Intro Mobile](aulas/aula-01.md) 📱
-*   [Aula 02 - Java vs Swift](aulas/aula-02.md) ☕
-*   [Aula 03 - Kotlin Moderno](aulas/aula-03.md) ⚡
-*   [Aula 04 - Estrutura App](aulas/aula-04.md) 🏗️
+### 🧱 Trilha 1: Fundamentos e UI
+Aqui estabelecemos a fundação. Compreensão do ecossistema Mobile Nativo, paralelos práticos entre Java e Swift e, principalmente, como explorar os recursos modernos do Kotlin para gerenciar a interface de usuário (UI) e o ciclo de vida do seu primeiro aplicativo.
 
-### 🏗️ Trilha 2: Arquitetura e Dados (Aulas 05-08)
-*   [Aula 05 - Interface (UI)](aulas/aula-05.md) 🎨
-*   [Aula 06 - Navegação](aulas/aula-06.md) 🗺️
-*   [Aula 07 - MVVM](aulas/aula-07.md) 🏛️
-*   [Aula 08 - Persistência (Room)](aulas/aula-08.md) 💾
+### 🏗️ Trilha 2: Arquitetura e Dados
+Nesta etapa, elevamos a complexidade estrutural. Você dominará os padrões do Android moderno usando MVVM para escalar soluções de médio e grande porte e usará a biblioteca Room (SQLite) para criar persistência robusta de dados locais.
 
-### 🔌 Trilha 3: Listas e Networking (Aulas 09-12)
-*   [Aula 09 - RecyclerView](aulas/aula-09.md) 📋
-*   [Aula 10 - API REST (Retrofit)](aulas/aula-10.md) 🌍
-*   [Aula 11 - Threads/Async](aulas/aula-11.md) 🧵
-*   [Aula 12 - UX/Material 3](aulas/aula-12.md) 💄
+### 🔌 Trilha 3: Listas e Networking
+Aplicativos se conectam ao mundo moderno consumindo APIs REST. Você vai gerenciar listas complexas (RecyclerViews), conectar-se a serviços através do Retrofit e explorar processamento assíncrono avançado para evitar travamento da UI.
 
-### 🚀 Trilha 4: Hardware e Lançamento (Aulas 13-16)
-*   [Aula 13 - Sensores/GPS](aulas/aula-13.md) 📸
-*   [Aula 14 - Testes/Debug](aulas/aula-14.md) 🧪
-*   [Aula 15 - Publicação Store](aulas/aula-15.md) 🏪
-*   [Aula 16 - Projeto Final](aulas/aula-16.md) 🎓
+### 🚀 Trilha 4: Hardware e Lançamento
+A fase derradeira sobre componentes nativos do aparelho celular! Consuma serviços de localização (GPS), lide com permissões do usuário em Background, escreva testes e debuge sua aplicação, preparando tudo para a publicação final na Google Play Store.
 
 ---
 

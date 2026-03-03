@@ -1,182 +1,175 @@
-# Aula 10 - APIs REST & Retrofit 🌍
-
-<!-- .slide: data-transition="zoom" -->
+# Aula 10 - Web Moderna: JS e TS 🌐
 
 ---
 
-## 📡 O App e a Internet
+## Agenda 📅
 
-Raramente um app vive sozinho. Ele precisa de dados externos.
-
-* Previsão do tempo. <!-- .element: class="fragment" -->
-* Posts de redes sociais. <!-- .element: class="fragment" -->
-* Salvar pedidos em um servidor. <!-- .element: class="fragment" -->
-
----
-
-## 🍕 O Conceito de API REST
-
-Pense em um restaurante (Servidor) e você (Cliente).
-
-1. **Request**: Você pede um prato. <!-- .element: class="fragment" -->
-2. **Endpoint**: A mesa do restaurante (`/pedidos`). <!-- .element: class="fragment" -->
-3. **Response**: O prato chega (JSON). <!-- .element: class="fragment" -->
+1.  O Navegador como SO <!-- .element: class="fragment" -->
+2.  O DOM (Document Object Model) <!-- .element: class="fragment" -->
+3.  JavaScript (Dinamismo) <!-- .element: class="fragment" -->
+4.  Node.js (Backend) <!-- .element: class="fragment" -->
+5.  TypeScript (Segurança) <!-- .element: class="fragment" -->
 
 ---
 
-### O Formato JSON 📦
+## 1. O Navegador é o Sistema Operacional 🖥️
 
-É como o mundo troca dados hoje.
+- Antigamente: Navegador só mostrava texto. <!-- .element: class="fragment" -->
+- Hoje: Roda aplicativos completos (Google Docs, Figma, Spotify). <!-- .element: class="fragment" -->
+- **Engine**: V8 (Chrome), SpiderMonkey (Firefox). <!-- .element: class="fragment" -->
 
-```json
-{
-  "usuario": "Ricardo",
-  "idade": 30,
-  "ativo": true
+---
+
+## 2. O DOM 🌳
+
+**Document Object Model**
+
+- É a árvore de elementos da página. <!-- .element: class="fragment" -->
+- O HTML é estático. O DOM é vivo. <!-- .element: class="fragment" -->
+- O JavaScript muda o DOM em tempo real. <!-- .element: class="fragment" -->
+
+---
+
+### Visualizando o DOM
+
+```mermaid
+graph TD;
+    Doc[Document] --> HTML;
+    HTML --> Head;
+    HTML --> Body;
+    Head --> Meta;
+    Body --> H1[Título];
+    Body --> P[Parágrafo];
+    Body --> Button[Botão];
+    
+    style Doc fill:#f9f;
+    style Button fill:#bbf;
+```
+
+---
+
+## 3. JavaScript: A Linguagem da Web ⚡
+
+- Única linguagem que roda nativamente no navegador. <!-- .element: class="fragment" -->
+- **Interpretada**: Não precisa compilar (o navegador lê e executa). <!-- .element: class="fragment" -->
+- **Fracamente Tipada**: `var x = 10` depois `x = "oi"` (Pode, mas cuidado!). <!-- .element: class="fragment" -->
+
+---
+
+### Interatividade (Eventos) 🖱️
+
+O JS reage a **Eventos** (Clique, Teclado, Mouse).
+
+```javascript
+const botao = document.querySelector('#meuBotao');
+
+botao.addEventListener('click', () => {
+    alert("Você clicou!");
+    botao.style.backgroundColor = "red";
+});
+```
+
+---
+
+## 4. Node.js: JS fora da Caixa 📦
+
+- Antes (2009): JS só rodava no Chrome. <!-- .element: class="fragment" -->
+- Ryan Dahl pegou a engine V8 e colocou no servidor. <!-- .element: class="fragment" -->
+- Nasceu o **Node.js**. <!-- .element: class="fragment" -->
+
+---
+
+### Por que Node? 🚀
+
+- Mesmo código no Frontend e Backend. <!-- .element: class="fragment" -->
+- Extremamente rápido (IO Não-Bloqueante). <!-- .element: class="fragment" -->
+- Comunidade gigante (NPM). <!-- .element: class="fragment" -->
+
+---
+
+### Exemplo de Servidor (Express)
+
+```javascript
+const express = require('express');
+const app = express();
+
+app.get('/', (req, res) => {
+    res.send('Olá Mundo do Backend!');
+});
+
+app.listen(3000);
+```
+
+---
+
+## 5. TypeScript: O JavaScript com Superpoderes 🛡️
+
+- Criado pela Microsoft. <!-- .element: class="fragment" -->
+- Adiciona **Tipagem Estática** ao JS. <!-- .element: class="fragment" -->
+- O navegador **NÃO** entende TS. Ele precisa ser **Transpilado** para JS. <!-- .element: class="fragment" -->
+
+---
+
+### Por que usar TS? 🤔
+
+JS aceita tudo (o que é ruim em projetos grandes).
+TS te avisa do erro **antes** de rodar.
+
+---
+
+### Comparativo
+
+**JavaScript (Perigoso)**
+```javascript
+function soma(a, b) {
+    return a + b;
 }
+soma(5, "10"); // Retorna "510" (Texto) 😱
 ```
 
----
-
-## 🚀 Conheça o Retrofit
-
-A biblioteca da Square que é o padrão absoluto no Android.
-
-* Transforma APIs em interfaces Kotlin. <!-- .element: class="fragment" -->
-* Faz o "parse" do JSON automaticamente. <!-- .element: class="fragment" -->
-* Suporte nativo a Coroutines. <!-- .element: class="fragment" -->
-
----
-
-## 🔨 Implementação em 3 Passos
-
----
-
-### 1. A Data Class (O Modelo)
-
-Deve ser o espelho do JSON.
-
-```kotlin
-data class Post(
-    val userId: Int,
-    val id: Int,
-    val title: String,
-    val body: String
-)
-```
-
----
-
-### 2. A Interface (O Contrato)
-
-```kotlin
-interface ApiService {
-    @GET("posts")
-    suspend fun obterPosts(): List<Post>
-
-    @GET("posts/{id}")
-    suspend fun obterPostUnico(@Path("id") id: Int): Post
+**TypeScript (Seguro)**
+```typescript
+function soma(a: number, b: number): number {
+    return a + b;
 }
+soma(5, "10"); // ERRO: "String não é Number" 🚫
 ```
 
 ---
 
-### 3. A Instância (O Cliente)
+## Frameworks Modernos ⚛️
 
-```kotlin
-val retrofit = Retrofit.Builder()
-    .baseUrl("https://jsonplaceholder.typicode.com/")
-    .addConverterFactory(GsonConverterFactory.create())
-    .build()
+Ninguém escreve JS puro ("Vanilla") em apps grandes.
 
-val api = retrofit.create(ApiService::class.java)
-```
+- **React** (Meta/Facebook) <!-- .element: class="fragment" -->
+- **Angular** (Google) <!-- .element: class="fragment" -->
+- **Vue.js** (Comunidade) <!-- .element: class="fragment" -->
+- Todos usam Componentes e Estado. <!-- .element: class="fragment" -->
 
 ---
 
-## 🧠 Chamando na ViewModel
+## Exercício Rápido ⚡
 
-Nunca trave a UI Thread!
-
-```kotlin
-viewModelScope.launch {
-    try {
-        val lista = api.obterPosts()
-        _posts.value = lista
-    } catch (e: Exception) {
-        // Tratar erro (falta de internet, 404...)
-    }
-}
-```
+1.  Abra o Console do Navegador (F12). <!-- .element: class="fragment" -->
+2.  Digite `alert("Olá")`. <!-- .element: class="fragment" -->
+3.  Digite `document.body.style.backgroundColor = "black"`. <!-- .element: class="fragment" -->
+4.  O que aconteceu? <!-- .element: class="fragment" -->
 
 ---
 
-## 🔐 Autenticação (JWT Tokens)
+## Resumo ✅
 
-A maioria das APIs exige login.
-
-* **Bearer Token**: Um código que você envia no Header. <!-- .element: class="fragment" -->
-* **Interceptor**: Adiciona o token em TODAS as chamadas automaticamente. <!-- .element: class="fragment" -->
-
-<!-- .slide: data-background-color="#002d04" -->
+- **DOM**: A estrutura da página. <!-- .element: class="fragment" -->
+- **JavaScript**: Dá vida ao DOM. <!-- .element: class="fragment" -->
+- **Node.js**: JS no servidor. <!-- .element: class="fragment" -->
+- **TypeScript**: JS com segurança de tipos. <!-- .element: class="fragment" -->
 
 ---
 
-## 🆚 Android vs iOS (Rede)
+## Próxima Aula 🚀
 
-| Recurso | Android (Retrofit) | iOS (URLSession) |
-| :--- | :--- | :--- |
-| **Linguagem** | Interface + Annotations | Native Classes / URLRequest |
-| **Conversão** | Gson / Moshi | Codable |
-| **Async** | Coroutines (suspend) | Async / Await |
+- O mundo corporativo exige robustez. <!-- .element: class="fragment" -->
+- **Java**: A linguagem que roda em 3 bilhões de dispositivos. <!-- .element: class="fragment" -->
+- Orientação a Objetos "Raiz". <!-- .element: class="fragment" -->
 
----
-
-## 🌐 Permissão de Internet
-
-No `AndroidManifest.xml`:
-
-```xml
-<uses-permission android:name="android.permission.INTERNET" />
-```
-
-> Esqueceu? O App crasha com **SecurityException**. 💥 <!-- .element: class="fragment" -->
-
----
-
-## 🛠️ Ferramentas de Apoio
-
-* **Postman / Insomnia**: Teste sua API antes de codar. <!-- .element: class="fragment" -->
-* **JSON Placeholder**: APIs falsas gratuitas para teste. <!-- .element: class="fragment" -->
-* **QuickType.io**: Gera a Data Class Kotlin direto do JSON. <!-- .element: class="fragment" -->
-
----
-
-## 🧪 Desafio da Aula: App de Repositórios
-
-1. Use a API pública do GitHub: `https://api.github.com/users/{seuUser}/repos`. <!-- .element: class="fragment" -->
-2. Crie a Data Class e a Interface. <!-- .element: class="fragment" -->
-3. Exiba o nome dos seus repositórios em uma `RecyclerView`. <!-- .element: class="fragment" -->
-
----
-
-## ⚠️ Cuidado com o Main Thread
-
-O Android não permite rede na Main Thread.
-Sempre use `viewModelScope.launch` ou troque o Dispatcher para `Dispatchers.IO`.
-
----
-
-## 🏁 Conclusão
-
-* APIs conectam seu app ao mundo. <!-- .element: class="fragment" -->
-* Retrofit + Gson = Produtividade máxima. <!-- .element: class="fragment" -->
-* Atenção às permissões e erros de rede. <!-- .element: class="fragment" -->
-
----
-
-## ❓ Perguntas sobre Internet?
-
----
-
-### Próxima Aula: Threads e Coroutines! 🧵👋
+👉 **Tarefa**: Instalar o Node.js e rodar um `console.log` no terminal!

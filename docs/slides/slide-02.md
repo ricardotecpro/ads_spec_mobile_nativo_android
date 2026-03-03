@@ -1,204 +1,207 @@
-# Aula 02 - Java para Android ☕
-
-<!-- .slide: data-transition="convex" -->
+# Aula 02 - Ambiente e Ferramentas 🛠️
 
 ---
 
-## 🎯 Por que aprender Java em 2026?
+## Agenda 📅
 
-"O Kotlin não matou o Java?"
-
-* **Base Sólida**: O Android é feito de Java. <!-- .element: class="fragment" -->
-* **Legado**: Bilhões de linhas de código em produção. <!-- .element: class="fragment" -->
-* **Mercado**: Muitas empresas pedem os dois. <!-- .element: class="fragment" -->
+1.  O Ciclo de Vida do Código <!-- .element: class="fragment" -->
+2.  Ferramentas de Aprendizado (Low Code) <!-- .element: class="fragment" -->
+3.  Visual Studio Code (A Ferramenta Real) <!-- .element: class="fragment" -->
+4.  O Terminal (Sem Medo!) <!-- .element: class="fragment" -->
+5.  Instalação e Configuração <!-- .element: class="fragment" -->
 
 ---
 
-## 🧱 A Base da Sintaxe
+## 1. O Ciclo de Vida do Código 🔄
 
-Java é uma linguagem de tipagem estática e explícita.
+Como o computador entende o que escrevemos?
 
-```java
-public class Ola {
-    public static void main(String[] args) {
-        System.out.println("Olá, Java!");
-    }
-}
+- **Nós**: Falamos Inglês/Português (Texto). <!-- .element: class="fragment" -->
+- **Computador**: Fala Energia (0 e 1). <!-- .element: class="fragment" -->
+- **O Problema**: Tradução. <!-- .element: class="fragment" -->
+
+---
+
+## As 3 Etapas 🚦
+
+1.  **Código Fonte**: O texto que você digita. <!-- .element: class="fragment" -->
+2.  **Compilação/Interpretação**: A tradução mágica. <!-- .element: class="fragment" -->
+3.  **Execução (Binário)**: O programa rodando. <!-- .element: class="fragment" -->
+
+---
+
+### Visualizando o Processo
+
+```mermaid
+graph LR;
+    A["Código Fonte\n(Humano)"] -->|Compilador| B["Binário\n(Máquina)"];
+    B -->|CPU| C["Execução\n(Ação)"];
+    style A fill:#f9f;
+    style B fill:#bbf;
+    style C fill:#bfb;
 ```
 
 ---
 
-## 📦 Variáveis e Tipos
+## Código Fonte 📝
 
-Onde guardamos os dados na memória.
-
-* **int**: Números inteiros. <!-- .element: class="fragment" -->
-* **double**: Números decimais. <!-- .element: class="fragment" -->
-* **boolean**: true ou false. <!-- .element: class="fragment" -->
-* **String**: Texto (É uma classe!). <!-- .element: class="fragment" -->
+- Arquivos de texto simples (`.alg`, `.py`, `.c`, `.java`). <!-- .element: class="fragment" -->
+- Legível para humanos. <!-- .element: class="fragment" -->
+- Exemplo: <!-- .element: class="fragment" -->
+    ```visualg
+    escreva("Olá Mundo")
+    ```
 
 ---
 
-### Cuidado com o Null! 👻
+## Compilador ⚙️
 
-Em Java, objetos podem ser `null`.
-Isso causa o famoso **NullPointerException**.
+- O "Tradutor". <!-- .element: class="fragment" -->
+- Verifica se você escreveu certo (Sintaxe). <!-- .element: class="fragment" -->
+- Transforma em linguagem de máquina. <!-- .element: class="fragment" -->
+- Se tiver erro, ele GRITA (Erro de Compilação). <!-- .element: class="fragment" -->
 
-```java
-String nome = null;
-int tamanho = nome.length(); // BOOM! 💥
+---
+
+## Binário / Executável 🚀
+
+- O resultado final. <!-- .element: class="fragment" -->
+- `.exe` (Windows), App Mobile. <!-- .element: class="fragment" -->
+- O usuário final só vê isso. <!-- .element: class="fragment" -->
+- Não dá para ler (só números e símbolos estranhos). <!-- .element: class="fragment" -->
+
+---
+
+## 2. Ferramentas Low Code 🧩
+
+Para começar **sem frustração**.
+
+- Foco na **Lógica**. <!-- .element: class="fragment" -->
+- Esqueça "ponto-e-vírgula" por enquanto. <!-- .element: class="fragment" -->
+- VisualG e Scratch. <!-- .element: class="fragment" -->
+
+---
+
+### VisualG 🟦
+
+- **Linguagem**: Portugol (Português Estruturado). <!-- .element: class="fragment" -->
+- **Interface**: Simples, leve. <!-- .element: class="fragment" -->
+- **Diferencial**: Mostra o valor das variáveis em tempo real (Memória). <!-- .element: class="fragment" -->
+- **Uso**: Exclusivo para ensino no Brasil. <!-- .element: class="fragment" -->
+
+---
+
+### Exemplo VisualG
+
+```visualg
+Algoritmo "Exemplo"
+Var
+   nome : caractere
+Inicio
+   escreva("Qual seu nome? ")
+   leia(nome)
+   escreva("Olá, ", nome)
+Fimalgoritmo
 ```
+> Parece português, funciona como código.
 
 ---
 
-## 🔀 Estruturas de Decisão
+### Scratch 🐱
 
-```java
-int idade = 20;
-
-if (idade >= 18) {
-    System.out.println("Pode dirigir");
-} else {
-    System.out.println("Aguarde mais um pouco");
-}
-```
+- Criado pelo MIT. <!-- .element: class="fragment" -->
+- Programação em **Blocos** (Lego). <!-- .element: class="fragment" -->
+- Impossível errar sintaxe (os blocos só encaixam se estiver certo). <!-- .element: class="fragment" -->
+- Ótimo para entender loops e eventos. <!-- .element: class="fragment" -->
 
 ---
 
-## 🔁 Estruturas de Repetição
+## 3. Visual Studio Code (VS Code) 💻
 
-```java
-// Contar até 5
-for (int i = 1; i <= 5; i++) {
-    System.out.println("Número: " + i);
-}
-```
+A ferramenta profissional.
 
----
-
-## 🏛️ Orientação a Objetos (POO)
-
-O coração do desenvolvimento nativo.
-
-* **Classe**: O molde (Planta da casa). <!-- .element: class="fragment" -->
-* **Objeto**: A instância (A casa construída). <!-- .element: class="fragment" -->
+- Gratuito (Microsoft). <!-- .element: class="fragment" -->
+- Leve. <!-- .element: class="fragment" -->
+- **Extensível**. <!-- .element: class="fragment" -->
 
 ---
 
-### Exemplo: Classe Carro 🚗
+### Por que VS Code? 🌟
 
-```java
-public class Carro {
-    String modelo;
-    int ano;
-
-    void buzinar() {
-        System.out.println("Beep Beep!");
-    }
-}
-```
+1.  **IntelliSense**: Autocomplete inteligente. <!-- .element: class="fragment" -->
+2.  **Multi-Linguagem**: Python, Java, C++, HTML... tudo num lugar só. <!-- .element: class="fragment" -->
+3.  **Terminal Integrado**: Não precisa abrir janelas extras. <!-- .element: class="fragment" -->
+4.  **Comunidade**: Milhares de plugins. <!-- .element: class="fragment" -->
 
 ---
 
-## 🧬 Herança: O `extends`
+### Extensões Essenciais 🧩
 
-No Android, usamos herança o tempo todo.
+Sem elas, ele é apenas um bloco de notas.
 
-```java
-public class MainActivity extends Activity {
-    // Agora minha classe faz tudo que uma Activity faz!
-}
-```
-
----
-
-## 🔒 Encapsulamento
-
-Proteja seus dados!
-
-* **public**: Todos veem. <!-- .element: class="fragment" -->
-* **private**: Só a classe vê. <!-- .element: class="fragment" -->
-
-> Use **getters** e **setters** para acessar dados privados.
+- **Portuguese (Brazil)**: Traduz o menu. <!-- .element: class="fragment" -->
+- **Material Icon Theme**: Ícones bonitos para arquivos. <!-- .element: class="fragment" -->
+- **Code Runner**: Roda código com um clique. <!-- .element: class="fragment" -->
+- **Live Server**: Para Web (HTML). <!-- .element: class="fragment" -->
 
 ---
 
-## 🗺️ Android Studio: Onde o Java vive
+## 4. O Terminal (Tela Preta) 🖥️
 
-Ao criar um App, o código Java fica na pasta:
-`app/src/main/java/`
+Não tenha medo da tela preta!
 
----
-
-### Ciclo de Vida: O `onCreate`
-
-O primeiro contato com o Android.
-
-```java
-@Override
-protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_main);
-}
-```
+- É o modo "Hacker" (mas simples). <!-- .element: class="fragment" -->
+- Controle total do sistema. <!-- .element: class="fragment" -->
+- Mais rápido que clicar com o mouse. <!-- .element: class="fragment" -->
 
 ---
 
-## 🔬 Comparação: Java vs Swift
+### Comandos Básicos (Windows/Linux)
 
-No iOS (Swift), os conceitos são os mesmos, muda a "roupa".
-
-* Java: `public class`
-* Swift: `class` (mais simples)
-
----
-
-## 🛠️ Ferramentas da Aula
-
-1. **JDK instalado**. <!-- .element: class="fragment" -->
-2. **IntelliJ** ou **Android Studio**. <!-- .element: class="fragment" -->
-3. Treinar lógica básica no console. <!-- .element: class="fragment" -->
-
-<!-- .slide: data-background-color="#5d2a42" -->
+| Comando | Função | Exemplo |
+| :--- | :--- | :--- |
+| `cd` | Change Directory (Mudar Pasta) | `cd projetos` |
+| `ls` ou `dir` | List (Listar arquivos) | `ls` |
+| `mkdir` | Make Directory (Criar Pasta) | `mkdir aula01` |
+| `clear` ou `cls` | Clear Screen (Limpar) | `cls` |
 
 ---
 
-## 🧩 Exercício Rápido
+## 5. Prática: Olá Mundo 🌍
 
-Crie uma classe `Usuario` com:
-* Nome (String)
-* Idade (int)
-* Método `verificarIdade()` que diz se é maior de idade.
+Vamos criar nosso primeiro programa no VisualG.
 
----
-
-## ⚡ De Java para Kotlin
-
-Na aula de hoje vimos Java.
-Nas próximas, veremos como o Kotlin simplifica **TUDO** isso.
-
-> Mas sem entender o Java, você será apenas um "copiador de código".
+1.  Abra o VisualG. <!-- .element: class="fragment" -->
+2.  No bloco `Inicio`, digite: <!-- .element: class="fragment" -->
+    ```visualg
+    Escreval("Olá, Mundo!")
+    ```
+3.  Aperte **F9** (Executar). <!-- .element: class="fragment" -->
 
 ---
 
-## 🏁 Resumo
+### Onde Configurar? 🛠️
 
-* Java é a fundação. <!-- .element: class="fragment" -->
-* POO é essencial para Android. <!-- .element: class="fragment" -->
-* Classes, Atributos e Métodos são seus novos amigos. <!-- .element: class="fragment" -->
+Preparamos guias passo a passo para você instalar tudo.
 
----
-
-## ❓ Pergunta do Dia
-
-"Posso criar um app Android sem saber nadinha de Java?"
-
-> Pode, mas na primeira biblioteca antiga que você baixar, vai travar!
+- [Setup 01 - VisualG](../setups/setup-01.md) (Comece aqui!) <!-- .element: class="fragment" -->
+- [Setup 03 - VS Code](../setups/setup-03.md) (Para depois) <!-- .element: class="fragment" -->
 
 ---
 
-### Próxima Aula: Kotlin Moderno ⚡
+## Resumo ✅
+
+- Código Fonte -> Compilador -> Binário. <!-- .element: class="fragment" -->
+- VisualG = Treino de Lógica. <!-- .element: class="fragment" -->
+- VS Code = ferramenta Profissional. <!-- .element: class="fragment" -->
+- Terminal = Poder e Velocidade. <!-- .element: class="fragment" -->
 
 ---
 
-### Valeu, pessoal! 👋
+## Próxima Aula 🚀
+
+- Entrar na "Mente do Computador". <!-- .element: class="fragment" -->
+- **Variáveis**: Como o computador guarda informações? <!-- .element: class="fragment" -->
+- **Tipos de Dados**: Texto, Número Inteiro, Número Real, Lógico. <!-- .element: class="fragment" -->
+
+👉 **Tarefa de Casa**: Instalar VisualG e rodar o "Olá Mundo".

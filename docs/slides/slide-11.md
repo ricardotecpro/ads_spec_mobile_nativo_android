@@ -1,165 +1,161 @@
-# Aula 11 - Threads e Coroutines 🧵
-
-<!-- .slide: data-transition="convex" -->
+# Aula 11 - Java e Orientação a Objetos ☕
 
 ---
 
-## 🛑 O Bloqueio da UI
+## Agenda 📅
 
-O Android é um sistema exigente: ele redesenha a tela a cada 16ms (60fps).
-
-* **Main Thread**: Onde tudo o que é visual acontece. <!-- .element: class="fragment" -->
-* **Regra de Ouro**: Nunca coloque código pesado na Main Thread. <!-- .element: class="fragment" -->
-
----
-
-### O Erro ANR 💀
-
-Se a Main Thread parar por +5 segundos...
-**Application Not Responding**. O sistema mata seu app.
-
-* Download de arquivos. <!-- .element: class="fragment" -->
-* Leitura de banco de dados pesada. <!-- .element: class="fragment" -->
-* Processamento de imagens. <!-- .element: class="fragment" -->
+1.  O Mundo dos Objetos <!-- .element: class="fragment" -->
+2.  Classes vs Objetos <!-- .element: class="fragment" -->
+3.  Java e a JVM <!-- .element: class="fragment" -->
+4.  Os 3 Pilares da OO <!-- .element: class="fragment" -->
+5.  Spring Boot (Java Moderno) <!-- .element: class="fragment" -->
 
 ---
 
-## ⚡ Kotlin Coroutines
+## 1. O Mundo Orientado a Objetos 🌍
 
-"Threads leves".
+Até agora, programamos **Ações** (Funções).
+Mas o mundo é feito de **Coisas** (Objetos).
 
-* Você pode rodar milhões sem travar o celular. <!-- .element: class="fragment" -->
-* Código assíncrono que parece sequencial. <!-- .element: class="fragment" -->
-* Criado pela JetBrains para facilitar sua vida. <!-- .element: class="fragment" -->
-
----
-
-## 🏛️ Os 3 Pilares da Coroutine
-
-1. **Job**: A tarefa em si (o trabalho). <!-- .element: class="fragment" -->
-2. **Scope**: Onde ela vive (morreu a tela, morre a tarefa). <!-- .element: class="fragment" -->
-3. **Dispatcher**: Em qual pista ela corre (Threads). <!-- .element: class="fragment" -->
+- **Estruturada**: Verbo (Fazer algo). <!-- .element: class="fragment" -->
+- **OO**: Substantivo (Algo que faz). <!-- .element: class="fragment" -->
 
 ---
 
-### 🚦 Conheça os Dispatchers
+## 2. Classe vs Objeto 🏗️
 
-* **Main**: Só para interface (UI). <!-- .element: class="fragment" -->
-* **IO**: Rede, Banco, Arquivos (Espera). <!-- .element: class="fragment" -->
-* **Default**: Cálculos pesados de CPU. <!-- .element: class="fragment" -->
+A distinção mais importante.
+
+- **Classe**: O Molde. A Planta. A Ideia. (Abstrato). <!-- .element: class="fragment" -->
+- **Objeto**: A Instância. A Casa. A Coisa Real. (Concreto). <!-- .element: class="fragment" -->
 
 ---
 
-## 🛌 A palavra-chave `suspend`
+### Visualizando (Mermaid)
 
-"Esta função pode demorar, mas não vai travar o celular".
+```mermaid
+classDiagram
+    class Carro {
+        +String cor
+        +acelerar()
+    }
+    Ferrari --|> Carro : É um
+    Fusca --|> Carro : É um
+```
 
-```kotlin
-suspend fun buscarDados() {
-    delay(2000) // Pausa a coroutine, não a thread!
-    println("Terminei")
+---
+
+## 3. Java e a JVM ♻️
+
+"Write Once, Run Anywhere" (Escreva uma vez, rode em qualquer lugar).
+
+- O Java não compila para Binário direto. <!-- .element: class="fragment" -->
+- Ele compila para **Bytecode** (`.class`). <!-- .element: class="fragment" -->
+- A **JVM** (Máquina Virtual Java) roda esse Bytecode em qualquer sistema (Windows, Linux, Android, Geladeira). <!-- .element: class="fragment" -->
+
+---
+
+## 4. Os 3 Pilares da OO 🏛️
+
+1.  Encapsulamento <!-- .element: class="fragment" -->
+2.  Herança <!-- .element: class="fragment" -->
+3.  Polimorfismo <!-- .element: class="fragment" -->
+
+---
+
+### Encapsulamento 🛡️
+
+Proteger os dados. Ninguém mexe no cofre do banco direto.
+
+- **Private**: Só a classe vê. <!-- .element: class="fragment" -->
+- **Public**: Todo mundo vê. <!-- .element: class="fragment" -->
+- **Getters/Setters**: Porteiros que controlam o acesso. <!-- .element: class="fragment" -->
+
+```java
+private double saldo;
+
+public void depositar(double valor) {
+    if (valor > 0) saldo += valor;
 }
 ```
 
 ---
 
-## 🧠 Coroutines na ViewModel
+### Herança 🧬
 
-```kotlin
-class MeuViewModel : ViewModel() {
-    fun carregar() {
-        viewModelScope.launch { // Inicia no Scope seguro
-             val dados = withContext(Dispatchers.IO) {
-                 api.getDados() // Roda em background
-             }
-             binding.txt.text = dados // Volta pra Main e atualiza
-        }
+Reaproveitar código.
+
+- `Cachorro` **é um** `Animal`. <!-- .element: class="fragment" -->
+- `Gato` **é um** `Animal`. <!-- .element: class="fragment" -->
+- Tudo que `Animal` tem, eles herdam (nome, idade). <!-- .element: class="fragment" -->
+
+```java
+public class Cachorro extends Animal { ... }
+```
+
+---
+
+### Polimorfismo 🎭
+
+Muitas formas.
+
+- O método `fazerSom()` existe em Animal. <!-- .element: class="fragment" -->
+- No Cachorro, ele faz "Au Au". <!-- .element: class="fragment" -->
+- No Gato, ele faz "Miau". <!-- .element: class="fragment" -->
+- O mesmo método se comporta diferente. <!-- .element: class="fragment" -->
+
+---
+
+## 5. Spring Boot 🍃
+
+Java não é só "tela preta".
+É a linguagem nº 1 em Bancos e Grandes Empresas.
+
+- **Spring Boot**: Framework para criar APIs Web. <!-- .element: class="fragment" -->
+- Tira toda a configuração chata. <!-- .element: class="fragment" -->
+
+---
+
+### Exemplo de API
+
+```java
+@RestController
+public class OlaController {
+    
+    @GetMapping("/ola")
+    public String dizerOla() {
+        return "Olá, Mundo Java Web!";
     }
 }
 ```
 
-<!-- .slide: data-background-color="#3d5a80" -->
+---
+
+## Exercício Mental 🧠
+
+Modele um sistema de **Venda**.
+
+- Classes: `Produto`, `Cliente`, `Venda`. <!-- .element: class="fragment" -->
+- Atributos: `Preco`, `Nome`. <!-- .element: class="fragment" -->
+- Métodos: `CalcularTotal()`, `Pagar()`. <!-- .element: class="fragment" -->
 
 ---
 
-## 🔌 Sockets (Tempo Real)
+## Resumo ✅
 
-REST é: "Eu peço, você responde".
-Socket é: "Canal aberto, qualquer um fala".
-
-* **Full-Duplex**: Envio e Recebimento simultâneo. <!-- .element: class="fragment" -->
-* **Casos**: Chat, GPS em tempo real, Bolsa de Valores. <!-- .element: class="fragment" -->
-
----
-
-### Socket vs REST
-
-```mermaid
-sequenceDiagram
-    participant App
-    participant Server
-    Note over App,Server: REST (Request/Response)
-    App->>Server: Me dá os dados?
-    Server->>App: Aqui estão. (Fecha)
-    
-    Note over App,Server: Socket (Persistent)
-    App->>Server: Abre conexão
-    Server->>App: Conectado!
-    Server->>App: Mensagem nova!
-    App->>Server: Valeu!
-```
+- **Classe** é molde, **Objeto** é real. <!-- .element: class="fragment" -->
+- **JVM** garante portabilidade. <!-- .element: class="fragment" -->
+- **Encapsulamento** protege. <!-- .element: class="fragment" -->
+- **Herança** reutiliza. <!-- .element: class="fragment" -->
+- **Polimorfismo** flexibiliza. <!-- .element: class="fragment" -->
 
 ---
 
-## 🆚 Android vs iOS (Async)
+## Próxima Aula 🚀
 
-| Recurso | Android (Kotlin) | iOS (Swift) |
-| :--- | :--- | :--- |
-| **Padrão** | Coroutines | Async / Await |
-| **Palavra** | `suspend` | `async` |
-| **Chamada** | `launch` | `Task` |
-| **Espera** | `delay` | `try await Task.sleep` |
+- O concorrente direto do Java. <!-- .element: class="fragment" -->
+- Criado pela Microsoft. <!-- .element: class="fragment" -->
+- **C# e plataforma .NET**. <!-- .element: class="fragment" -->
+- Foco em produtividade. <!-- .element: class="fragment" -->
 
----
-
-## 🚫 Cancelamento Automático
-
-O `viewModelScope` é fantástico.
-
-1. Usuário abre a tela e começa o download. <!-- .element: class="fragment" -->
-2. Usuário fecha o app ou muda de tela. <!-- .element: class="fragment" -->
-3. O download é cancelado na hora. Economia de bateria e dados! <!-- .element: class="fragment" -->
-
----
-
-## 🛠️ Prática: O Simulador de Corrida
-
-```kotlin
-suspend fun corrida() {
-    println("3...")
-    delay(1000)
-    println("2...")
-    delay(1000)
-    println("1...")
-    delay(1000)
-    println("JÁ!")
-}
-```
-
-* Chame isso num clique de botão e tente clicar em outro botão enquanto a contagem ocorre. Se funcionar, você venceu o ANR! 🏆
-
----
-
-## 🏁 Conclusão
-
-* Main Thread é sagrada. <!-- .element: class="fragment" -->
-* Coroutines trazem ordem ao caos assíncrono. <!-- .element: class="fragment" -->
-* Sempre use `viewModelScope` para segurança. <!-- .element: class="fragment" -->
-
----
-
-## ❓ Perguntas sobre Threads?
-
----
-
-### Próxima Aula: UX e Material Design 3! 🎨👋
+👉 **Tarefa**: Instalar o JDK (Java Development Kit) e o VS Code Extension Pack for Java!

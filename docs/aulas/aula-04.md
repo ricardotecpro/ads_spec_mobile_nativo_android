@@ -165,4 +165,43 @@ Explore a estrutura típica de um projeto Android:
 
 ---
 
-**Próxima Aula**: Vamos deixar o app bonito! [Interface Gráfica (Layouts e Views)](./aula-05.md) 🖌️
+## 🔗 Materiais da Aula
+
+<div class="grid cards" markdown>
+- :material-presentation: **Slides**
+
+    ---
+
+    Material visual com diagramas e conceitos-chave.
+
+    [:octicons-arrow-right-24: Slide 04](../slides/slide-04.html)
+
+- :material-help-circle: **Quiz**
+
+    ---
+
+    Teste seu conhecimento com 10 questões interativas.
+
+    [:octicons-arrow-right-24: Quiz 04](../quizzes/quiz-04.md)
+
+- :fontawesome-solid-pencil: **Exercícios**
+
+    ---
+
+    5 exercícios progressivos (básico → desafio).
+
+    [:octicons-arrow-right-24: Exercício 04](../exercicios/exercicio-04.md)
+
+- :material-briefcase-outline: **Projeto**
+
+    ---
+
+    Aplicação prática dos conceitos da aula.
+
+    [:octicons-arrow-right-24: Projeto 04](../projetos/projeto-04.md)
+
+</div>
+
+---
+
+[➡️ Próxima Aula: Aula 05](./aula-05.md){ .md-button .md-button--primary }

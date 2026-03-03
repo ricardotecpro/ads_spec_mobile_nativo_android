@@ -1,119 +1,148 @@
-# Aula 15 - Publicação na Google Play 🚀
-
-<!-- .slide: data-transition="convex" -->
+# Aula 15 - Desenvolvimento Mobile 📱
 
 ---
 
-## 🏁 A Reta Final
+## Agenda 📅
 
-Seu app está pronto e testado. Agora, como o mundo vai baixá-lo?
-
-* Google Play (Android). <!-- .element: class="fragment" -->
-* App Store (iOS). <!-- .element: class="fragment" -->
-* Distribuição Direta (APK/Enterprise). <!-- .element: class="fragment" -->
-
----
-
-## 📦 APK vs AAB
-
-O passado e o futuro dos pacotes.
-
-* **APK**: Um arquivo gigante para todos os celulares. <!-- .element: class="fragment" -->
-* **AAB (App Bundle)**: O Google gera o APK sob medida para cada usuário. <!-- .element: class="fragment" -->
-* **Resultado**: Downloads até 50% menores! 💎 <!-- .element: class="fragment" -->
+1.  O Ecossistema Mobile <!-- .element: class="fragment" -->
+2.  Nativo vs Multiplataforma <!-- .element: class="fragment" -->
+3.  Dart e Flutter (Google) <!-- .element: class="fragment" -->
+4.  Árvore de Widgets <!-- .element: class="fragment" -->
+5.  Kotlin (Android Nativo) <!-- .element: class="fragment" -->
 
 ---
 
-## 🔑 A Chave da Vida (Keystore)
+## 1. O Mundo Mobile 🌍
 
-Todo app de produção deve ser assinado.
+Dois gigantes dominam o mercado.
 
-* O arquivo `.jks` é o seu RG. <!-- .element: class="fragment" -->
-* **AVISO CRÍTICO**: Se perder a senha ou o arquivo, você nunca mais poderá atualizar o app. Guarde na nuvem, no HD e no papel! 💾 <!-- .element: class="fragment" -->
-
----
-
-## 🎮 Google Play Console
-
-O portal dos campeões.
-
-* **Taxa**: $25 (Única e vitalícia). <!-- .element: class="fragment" -->
-* **Análise**: O Google revisa seu app (1 a 7 dias). <!-- .element: class="fragment" -->
-* **Políticas**: Cuidado com direitos autorais e privacidade. <!-- .element: class="fragment" -->
+- **Android (Google)**: ~70% do mercado mundial. Aberto. Baseado em Linux/Java. <!-- .element: class="fragment" -->
+- **iOS (Apple)**: ~29% do mercado. Fechado. Hardware Premium. <!-- .element: class="fragment" -->
 
 ---
 
-## 🛡️ Ofuscação (R8 / ProGuard)
+## 2. Abordagens de Desenvolvimento 🛠️
 
-Proteja seu código original.
+Como criar apps para eles?
 
-* Transforma `MinhaClasseDeLogin` em `a.b.c`. <!-- .element: class="fragment" -->
-* Remove código morto. <!-- .element: class="fragment" -->
-* Dificulta a pirataria e engenharia reversa. <!-- .element: class="fragment" -->
+1.  **Nativo**: <!-- .element: class="fragment" -->
+    - Performance Máxima. <!-- .element: class="fragment" -->
+    - Acesso total ao hardware (GPS, Bluetooth). <!-- .element: class="fragment" -->
+    - **Problema**: Precisa fazer 2 vezes (Kotlin para Android, Swift para iOS). <!-- .element: class="fragment" -->
 
----
-
-## 📈 Versão e Build
-
-No `build.gradle`:
-
-* **versionCode**: 1, 2, 3... (Sempre sobe). <!-- .element: class="fragment" -->
-* **versionName**: "1.0.0", "1.1.2" (O que o usuário vê). <!-- .element: class="fragment" -->
-
-<!-- .slide: data-background-color="#344e41" -->
+2.  **Multiplataforma**: <!-- .element: class="fragment" -->
+    - Escreve uma vez, roda nos dois. <!-- .element: class="fragment" -->
+    - Flutter (Dart) ou React Native (JS). <!-- .element: class="fragment" -->
+    - **Vantagem**: Velocidade de entrega. <!-- .element: class="fragment" -->
 
 ---
 
-## 🎨 Marketing na Loja (ASO)
+## 3. Flutter e Dart 💙
 
-Não basta ser bom, tem que parecer bom.
-
-* **Ícone**: A cara do seu app (512px). <!-- .element: class="fragment" -->
-* **Feature Graphic**: O banner de impacto. <!-- .element: class="fragment" -->
-* **Screenshots**: Mostre as melhores telas! <!-- .element: class="fragment" -->
+- **Dart**: A linguagem (parece Java + JS). <!-- .element: class="fragment" -->
+- **Flutter**: O Kit de Ferramentas (UI Toolkit). <!-- .element: class="fragment" -->
+- Renderiza pixels direto na tela (como um jogo). <!-- .element: class="fragment" -->
 
 ---
 
-## 🆚 Android vs iOS (Loja)
+### Tudo é um Widget 🧱
 
-| Característica | Google Play | App Store |
-| :--- | :--- | :--- |
-| **Custo** | $25 (Única) | $99 (Anual) |
-| **Revisão** | Média de 2 dias | Média de 24h a 48h |
-| **Rigidez** | Moderada | Alta / Rigorosa |
-| **Formato** | AAB / APK | IPA |
+Botão é widget. Texto é widget. Layout é widget.
 
----
-
-## 🧪 Canais de Teste
-
-Teste com pessoas reais antes do lançamento.
-
-1. **Teste Interno**: Amigos e equipe. <!-- .element: class="fragment" -->
-2. **Teste Fechado (Beta)**: Grupo seleto. <!-- .element: class="fragment" -->
-3. **Produção**: O mundo todo! <!-- .element: class="fragment" -->
+```mermaid
+graph TD;
+    App[MaterialApp] --> Home["Tela Principal"];
+    Home --> AppBar[Barra Superior];
+    Home --> Body[Corpo];
+    Body --> Center;
+    Center --> Button["Botão Clique"];
+    
+    style App fill:#f9f;
+```
 
 ---
 
-## 🏆 Checklist de Lançamento
+### Código Flutter Básico
 
-- [ ] Removi todos os `Log.d`? <!-- .element: class="fragment" -->
-- [ ] O nome do app está correto? <!-- .element: class="fragment" -->
-- [ ] O ícone é o de produção (não o padrão)? <!-- .element: class="fragment" -->
-- [ ] Tenho os links de Política de Privacidade? <!-- .element: class="fragment" -->
+```dart
+import 'package:flutter/material.dart';
 
----
-
-## 🏁 Conclusão
-
-* Publicar é um processo burocrático mas gratificante. <!-- .element: class="fragment" -->
-* A segurança da Keystore é sua prioridade #1. <!-- .element: class="fragment" -->
-* Marketing (ASO) é o que traz downloads. <!-- .element: class="fragment" -->
-
----
-
-## ❓ Perguntas sobre Lançamento?
+void main() {
+  runApp(MaterialApp(
+    home: Scaffold(
+      appBar: AppBar(title: Text("Meu App")),
+      body: Center(child: Text("Olá Mundo!")),
+    ),
+  ));
+}
+```
 
 ---
 
-### Próxima Aula: Projeto Final e Portfólio! 🎓👋
+## 4. O Estado (State) ⚡
+
+Apps são interativos.
+Se o usuário clica, a tela muda.
+
+- **StatelessWidget**: Estático (Ícone, Texto). <!-- .element: class="fragment" -->
+- **StatefulWidget**: Dinâmico (Checkbox, Contador). <!-- .element: class="fragment" -->
+
+---
+
+### Ciclo de Vida do Estado
+
+```mermaid
+graph LR;
+    User["Usuário Clica"] --> Acao[setState];
+    Acao --> Build[Reconstruir Tela];
+    Build --> UI[Nova UI];
+```
+
+---
+
+## 5. Kotlin (Android Nativo) 🤖
+
+Para quando você precisa de poder bruto.
+
+- Oficial do Google. <!-- .element: class="fragment" -->
+- 100% Compatível com Java. <!-- .element: class="fragment" -->
+- Conciso e seguro (sem NullPointerException). <!-- .element: class="fragment" -->
+
+```kotlin
+fun main() {
+    val nome = "Android"
+    println("Olá, $nome!")
+}
+```
+
+---
+
+## Termynal: Criando App 📱
+
+<div data-termynal class="termy">
+    <span data-ty="input">flutter create meu_app</span>
+    <span data-ty="progress">Criando arquivos...</span>
+    <span data-ty="input">flutter run</span>
+    <span data-ty="progress">Compilando APK...</span>
+    <span data-ty>App rodando no Emulador!</span>
+</div>
+
+---
+
+## Resumo ✅
+
+- **Nativo**: Melhor performance, mais trabalho. <!-- .element: class="fragment" -->
+- **Multiplataforma**: Menor custo, velocidade. <!-- .element: class="fragment" -->
+- **Flutter**: Desenha a tela do zero. <!-- .element: class="fragment" -->
+- **Widgets**: Blocos de construção. <!-- .element: class="fragment" -->
+
+---
+
+## Próxima Aula 🚀
+
+- Sair do Cliente (Celular). <!-- .element: class="fragment" -->
+- Voltar para o Servidor (Backend). <!-- .element: class="fragment" -->
+- A tecnologia que roda 77% da Web. <!-- .element: class="fragment" -->
+- **PHP e Arquitetura MVC**. <!-- .element: class="fragment" -->
+
+👉 **Tarefa**: Rodar o "Counter App" do Flutter!

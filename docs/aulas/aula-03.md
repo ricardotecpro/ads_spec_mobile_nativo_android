@@ -106,7 +106,8 @@ No iOS, usamos `struct` para dados leves, que é muito similar ao `data class`, 
 
 Vamos testar o REPL do Kotlin (ambiente de teste rápido). Imagine digitando isso no terminal:
 
-```termynal
+<!-- termynal -->
+```bash
 $ kotlinc
 Welcome to Kotlin version 1.9.0 (JRE 17.0.8)
 >>> val lista = listOf("Android", "iOS", "Web")
@@ -154,4 +155,43 @@ if (texto != null) {
 
 ---
 
-**Próxima Aula**: Agora que sabemos a linguagem, vamos entender o **Android**! [Estrutura de um App Android](./aula-04.md) 📱
+## 🔗 Materiais da Aula
+
+<div class="grid cards" markdown>
+- :material-presentation: **Slides**
+
+    ---
+
+    Material visual com diagramas e conceitos-chave.
+
+    [:octicons-arrow-right-24: Slide 03](../slides/slide-03.html)
+
+- :material-help-circle: **Quiz**
+
+    ---
+
+    Teste seu conhecimento com 10 questões interativas.
+
+    [:octicons-arrow-right-24: Quiz 03](../quizzes/quiz-03.md)
+
+- :fontawesome-solid-pencil: **Exercícios**
+
+    ---
+
+    5 exercícios progressivos (básico → desafio).
+
+    [:octicons-arrow-right-24: Exercício 03](../exercicios/exercicio-03.md)
+
+- :material-briefcase-outline: **Projeto**
+
+    ---
+
+    Aplicação prática dos conceitos da aula.
+
+    [:octicons-arrow-right-24: Projeto 03](../projetos/projeto-03.md)
+
+</div>
+
+---
+
+[➡️ Próxima Aula: Aula 04](./aula-04.md){ .md-button .md-button--primary }

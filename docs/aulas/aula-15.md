@@ -67,4 +67,43 @@ Imagine que você terminou seu app de Notas. Marque o que você faria ANTES de c
 
 ---
 
-**Próxima Aula**: O grande final! [Projeto de Conclusão de Curso](./aula-16.md) 🎓
+## 🔗 Materiais da Aula
+
+<div class="grid cards" markdown>
+- :material-presentation: **Slides**
+
+    ---
+
+    Material visual com diagramas e conceitos-chave.
+
+    [:octicons-arrow-right-24: Slide 15](../slides/slide-15.html)
+
+- :material-help-circle: **Quiz**
+
+    ---
+
+    Teste seu conhecimento com 10 questões interativas.
+
+    [:octicons-arrow-right-24: Quiz 15](../quizzes/quiz-15.md)
+
+- :fontawesome-solid-pencil: **Exercícios**
+
+    ---
+
+    5 exercícios progressivos (básico → desafio).
+
+    [:octicons-arrow-right-24: Exercício 15](../exercicios/exercicio-15.md)
+
+- :material-briefcase-outline: **Projeto**
+
+    ---
+
+    Aplicação prática dos conceitos da aula.
+
+    [:octicons-arrow-right-24: Projeto 15](../projetos/projeto-15.md)
+
+</div>
+
+---
+
+[➡️ Próxima Aula: Aula 16](./aula-16.md){ .md-button .md-button--primary }

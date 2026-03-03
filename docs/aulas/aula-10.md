@@ -155,4 +155,43 @@ val retrofit = Retrofit.Builder()
 
 ---
 
-**Próxima Aula**: O que é esse `suspend` e `launch`? Vamos entender o mundo **Assíncrono**. [Threads e Coroutines](./aula-11.md) 🧵
+## 🔗 Materiais da Aula
+
+<div class="grid cards" markdown>
+- :material-presentation: **Slides**
+
+    ---
+
+    Material visual com diagramas e conceitos-chave.
+
+    [:octicons-arrow-right-24: Slide 10](../slides/slide-10.html)
+
+- :material-help-circle: **Quiz**
+
+    ---
+
+    Teste seu conhecimento com 10 questões interativas.
+
+    [:octicons-arrow-right-24: Quiz 10](../quizzes/quiz-10.md)
+
+- :fontawesome-solid-pencil: **Exercícios**
+
+    ---
+
+    5 exercícios progressivos (básico → desafio).
+
+    [:octicons-arrow-right-24: Exercício 10](../exercicios/exercicio-10.md)
+
+- :material-briefcase-outline: **Projeto**
+
+    ---
+
+    Aplicação prática dos conceitos da aula.
+
+    [:octicons-arrow-right-24: Projeto 10](../projetos/projeto-10.md)
+
+</div>
+
+---
+
+[➡️ Próxima Aula: Aula 11](./aula-11.md){ .md-button .md-button--primary }

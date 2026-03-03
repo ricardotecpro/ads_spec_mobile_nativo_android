@@ -119,4 +119,43 @@ Desenhe o fluxo (no papel ou Mermaid) e implemente o código:
 
 ---
 
-**Próxima Aula**: Chega de jogar código na Activity! Vamos organizar a casa com [Arquitetura MVVM](./aula-07.md) 🏗️
+## 🔗 Materiais da Aula
+
+<div class="grid cards" markdown>
+- :material-presentation: **Slides**
+
+    ---
+
+    Material visual com diagramas e conceitos-chave.
+
+    [:octicons-arrow-right-24: Slide 06](../slides/slide-06.html)
+
+- :material-help-circle: **Quiz**
+
+    ---
+
+    Teste seu conhecimento com 10 questões interativas.
+
+    [:octicons-arrow-right-24: Quiz 06](../quizzes/quiz-06.md)
+
+- :fontawesome-solid-pencil: **Exercícios**
+
+    ---
+
+    5 exercícios progressivos (básico → desafio).
+
+    [:octicons-arrow-right-24: Exercício 06](../exercicios/exercicio-06.md)
+
+- :material-briefcase-outline: **Projeto**
+
+    ---
+
+    Aplicação prática dos conceitos da aula.
+
+    [:octicons-arrow-right-24: Projeto 06](../projetos/projeto-06.md)
+
+</div>
+
+---
+
+[➡️ Próxima Aula: Aula 07](./aula-07.md){ .md-button .md-button--primary }

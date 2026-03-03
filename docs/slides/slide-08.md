@@ -1,183 +1,162 @@
-# Aula 08 - Persistência de Dados 💾
-
-<!-- .slide: data-transition="slide" -->
+# Aula 08 - Modularização 🧩
 
 ---
 
-## 💾 Onde guardamos os dados?
+## Agenda 📅
 
-Apps precisam lembrar das coisas quando fechados.
-
-* Configurações simples. <!-- .element: class="fragment" -->
-* Listas complexas. <!-- .element: class="fragment" -->
-* Arquivos multimídia. <!-- .element: class="fragment" -->
-
----
-
-## 1. SharedPreferences 🔑
-
-A forma mais simples: Chave e Valor.
-
-* "nome" -> "Ricardo" <!-- .element: class="fragment" -->
-* "notificacoes_on" -> true <!-- .element: class="fragment" -->
-* "tema" -> 1 <!-- .element: class="fragment" -->
+1.  Conceito de Módulos (Divide & Conquer) <!-- .element: class="fragment" -->
+2.  Procedimentos vs Funções <!-- .element: class="fragment" -->
+3.  Escopo de Variáveis (Locais x Globais) <!-- .element: class="fragment" -->
+4.  Parâmetros (Valor x Referência) <!-- .element: class="fragment" -->
+5.  Exemplos Práticos <!-- .element: class="fragment" -->
 
 ---
 
-### Usando PreferenceManager
+## 1. Dividir para Conquistar ⚔️
 
-```kotlin
-val prefs = getSharedPreferences("config", MODE_PRIVATE)
-
-// Gravar
-prefs.edit().putString("USER", "Android").apply()
-
-// Ler
-val user = prefs.getString("USER", "Ninguém")
-```
-
-> **Atenção**: Não use para dados grandes ou listas!
+Imagine construir um carro inteiro num bloco só. Impossível!
+Nós montamos:
+- Motor 🔧 <!-- .element: class="fragment" -->
+- Rodas 🚗 <!-- .element: class="fragment" -->
+- Vidros 🪟 <!-- .element: class="fragment" -->
+E depois **juntamos**.
 
 ---
 
-## 🏛️ Banco de Dados: SQLite
+### Na Programação
 
-O Android tem o SQLite no seu coração.
-
-* Banco Relacional. <!-- .element: class="fragment" -->
-* Leve e embutido. <!-- .element: class="fragment" -->
-* Mas... o código puro é horrível (SQL strings). <!-- .element: class="fragment" -->
+- Não escreva 1000 linhas no `Inicio`. <!-- .element: class="fragment" -->
+- Quebre em pequenos blocos (**Módulos**). <!-- .element: class="fragment" -->
+- Cada módulo resolve **um problema específico**. <!-- .element: class="fragment" -->
 
 ---
 
-## 🔨 Conheça o ROOM
-
-A biblioteca do Jetpack que salva vidas.
-
-1. **Entity**: Sua tabela (Classe de dados). <!-- .element: class="fragment" -->
-2. **DAO**: Seus comandos (Queries). <!-- .element: class="fragment" -->
-3. **Database**: O gerente do banco. <!-- .element: class="fragment" -->
-
-<!-- .slide: data-transition="convex" -->
-
----
-
-### Passo 1: A Entidade (@Entity)
-
-```kotlin
-@Entity
-data class User(
-    @PrimaryKey val id: Int,
-    val name: String
-)
-```
-
----
-
-### Passo 2: O DAO (@Dao)
-
-```kotlin
-@Dao
-interface UserDao {
-    @Insert
-    void save(User user)
-
-    @Query("SELECT * FROM User")
-    LiveData<List<User>> getAll()
-}
-```
-
----
-
-## 🧵 A Regra de Ouro do Banco
-
-**NUNCA** acesse o banco na Main Thread.
-
-* O Room vai travar seu app (Crash) se você tentar. <!-- .element: class="fragment" -->
-* Use **Coroutines** ou **LiveData**. <!-- .element: class="fragment" -->
-* Por que? Porque ler o disco é lento e trava a tela. <!-- .element: class="fragment" -->
-
----
-
-## 🧬 Ciclo Completo: MVVM + Room
+### Visualizando (Mermaid)
 
 ```mermaid
-graph TD
-    UI[Activity/View] -->|Observa| VM[ViewModel]
-    VM -->|Pede| REPO[Repository]
-    REPO -->|Query| DB[(Room DB)]
-    DB -->|Retorna| REPO
-    REPO -->|State| VM
-    VM -->|LiveData| UI
+sequenceDiagram
+    participant Principal
+    participant Soma
+    
+    Principal->>Soma: Envia (5, 3)
+    Note right of Soma: Calcula 5+3
+    Soma-->>Principal: Retorna 8
+    Principal->>Principal: Mostra 8
 ```
 
 ---
 
-## 📂 Arquivos Externos
+## 2. Tipos de Módulos 🛠️
 
-Para fotos e vídeos.
+Em Portugol, temos dois tipos principais.
 
-* **Cache**: Temporário. <!-- .element: class="fragment" -->
-* **Arquivos Privados**: Só seu app vê. <!-- .element: class="fragment" -->
-* **Arquivos Públicos**: Galeria, Downloads (Precisa de permissão). <!-- .element: class="fragment" -->
-
----
-
-## 🆚 Persistência: Android vs iOS
-
-| Recurso | Android | iOS |
-| :---: | :---: | :--- |
-| **Simples** | SharedPreferences | UserDefaults |
-| **Banco** | Room (SQLite) | Core Data / SwiftData |
-| **Arquivos** | Scoped Storage | Sandbox |
+1.  **Procedimentos**: Fazem uma ação, mas não devolvem valor matemático. <!-- .element: class="fragment" -->
+2.  **Funções**: Calculam e **RETORNAM** um valor. <!-- .element: class="fragment" -->
 
 ---
 
-## 🕵️ Ferramenta: App Inspection
+### Procedimento (Ação)
 
-No Android Studio, você pode ver o banco de dados **ao vivo**.
+Ex: `LimparTela()`, `MostrarMenu()`, `TocarSom()`.
 
-1. Rode o app. <!-- .element: class="fragment" -->
-2. Aba `App Inspection` -> `Database Inspector`. <!-- .element: class="fragment" -->
-3. Você pode editar os dados e ver a tela do celular mudar! 🎩 <!-- .element: class="fragment" -->
-
-<!-- .slide: data-background-color="#003049" -->
-
----
-
-## 🛠️ Prática: Lista de Tarefas
-
-Vamos criar um banco para salvar textos.
-
-1. Configure o Room no `build.gradle`. <!-- .element: class="fragment" -->
-2. Crie a Entity `Task`. <!-- .element: class="fragment" -->
-3. Salve um texto vindo de um `EditText`. <!-- .element: class="fragment" -->
+```portugol
+procedimento saudacao(nome : caractere)
+inicio
+   escreval("Olá, ", nome)
+fimprocedimento
+```
+> Chamada: `saudacao("João")`
 
 ---
 
-### Dica: O Singleton do Banco
+### Função (Cálculo)
 
-Não crie várias instâncias do banco. Use o padrão **Singleton**.
+Ex: `Raiz(x)`, `Soma(a,b)`, `Media(n1,n2)`.
+Tem a palavra mágica **RETORNE**.
 
-```kotlin
-val db = Room.databaseBuilder(
-    applicationContext,
-    AppDatabase::class.java, "database-name"
-).build()
+```portugol
+funcao somar(a, b : inteiro) : inteiro
+inicio
+   retorne a + b
+fimfuncao
+```
+> Chamada: `res <- somar(2, 3)`
+
+---
+
+## 3. Escopo de Variáveis 🏠
+
+Onde minha variável vive?
+
+- **Global**: Criada fora de tudo. Todo mundo vê. (Perigoso!). <!-- .element: class="fragment" -->
+- **Local**: Criada dentro da função. Só a função vê. (Seguro!). <!-- .element: class="fragment" -->
+
+---
+
+### O Muro das Funções 🧱
+
+Se eu crio `x` dentro de `somar`, o `Principal` **não sabe** quem é `x`.
+Isso evita confusão!
+
+---
+
+## 4. Parâmetros 🚚
+
+Como passar dados para a função?
+
+1.  **Por Valor** (O padrão): Envia uma **CÓPIA**. Se a função mudar, o original não muda. <!-- .element: class="fragment" -->
+2.  **Por Referência** (`var`): Envia o **ENDEREÇO**. Se a função mudar, o original MUDA! <!-- .element: class="fragment" -->
+
+---
+
+### Exemplo: Troca de Valores
+
+Precisa ser por Referência!
+
+```portugol
+procedimento troca(var a, var b : inteiro)
+inicio
+   temp <- a
+   a <- b
+   b <- temp
+fimprocedimento
 ```
 
 ---
 
-## 🏁 Conclusão
+## 5. Vantagens da Modularização ✅
 
-* Escolha a ferramenta certa para o dado certo. <!-- .element: class="fragment" -->
-* Room é o padrão para dados estruturados. <!-- .element: class="fragment" -->
-* Sempre use threads de background (IO). <!-- .element: class="fragment" -->
-
----
-
-## ❓ Dúvidas sobre Dados?
+1.  **Reutilização**: Escreve uma vez, usa 1000 vezes. <!-- .element: class="fragment" -->
+2.  **Organização**: Código limpo. <!-- .element: class="fragment" -->
+3.  **Facilidade de Manutenção**: Se o cálculo mudar, corrijo num lugar só. <!-- .element: class="fragment" -->
 
 ---
 
-### Próxima Aula: Listas com RecyclerView! 📋👋
+## Projeto Final Módulo 1 🏆
+
+**Sistema de Notas Completo**
+
+- Use Vetores. <!-- .element: class="fragment" -->
+- Use Matrizes (se quiser). <!-- .element: class="fragment" -->
+- Use Funções para calcular média. <!-- .element: class="fragment" -->
+- Use Procedimentos para mostrar boletim. <!-- .element: class="fragment" -->
+
+---
+
+## Resumo ✅
+
+- Modularizar = Organizar. <!-- .element: class="fragment" -->
+- **Função** retorna valor. **Procedimento** faz ação. <!-- .element: class="fragment" -->
+- Variáveis **Locais** são protegidas. <!-- .element: class="fragment" -->
+- Use parâmetros para comunicar. <!-- .element: class="fragment" -->
+
+---
+
+## Próxima Aula 🚀
+
+- Fim da "Lógica Pura"! <!-- .element: class="fragment" -->
+- Vamos conhecer linguagens reais. <!-- .element: class="fragment" -->
+- **C e C++**: Os pais da programação moderna. <!-- .element: class="fragment" -->
+- Gerenciamento de Memória na unha! <!-- .element: class="fragment" -->
+
+👉 **Tarefa**: Refatore seus códigos antigos usando Funções!

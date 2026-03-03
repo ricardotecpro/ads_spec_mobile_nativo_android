@@ -27,7 +27,7 @@ def test_homepage_structure(page: Page, base_url):
     page.goto(base_url)
     
     # Check title
-    expect(page).to_have_title("Desenvolvimento Mobile Nativo - Curso")
+    expect(page).to_have_title("Curso - Desenvolvimento Mobile Nativo - Curso")
     
     # Check main heading
     heading = page.locator("h1")
@@ -35,7 +35,7 @@ def test_homepage_structure(page: Page, base_url):
     
     # Check navigation cards exist
     # expect(page.get_by_text("Lógica Sólida")).to_be_visible()
-    expect(page.get_by_text("Aulas Teóricas")).to_be_visible()
+    expect(page.get_by_text("Trilha de Aulas")).to_be_visible()
 
 # Test 3: Navigation to Lesson 01
 def test_lesson_01_page(page: Page, base_url):

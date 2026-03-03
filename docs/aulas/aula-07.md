@@ -116,4 +116,43 @@ Crie um app "Contador de Cliques".
 
 ---
 
-**Próxima Aula**: Onde guardar esses dados para sempre? [Persistência de Dados](./aula-08.md) 💾
+## 🔗 Materiais da Aula
+
+<div class="grid cards" markdown>
+- :material-presentation: **Slides**
+
+    ---
+
+    Material visual com diagramas e conceitos-chave.
+
+    [:octicons-arrow-right-24: Slide 07](../slides/slide-07.html)
+
+- :material-help-circle: **Quiz**
+
+    ---
+
+    Teste seu conhecimento com 10 questões interativas.
+
+    [:octicons-arrow-right-24: Quiz 07](../quizzes/quiz-07.md)
+
+- :fontawesome-solid-pencil: **Exercícios**
+
+    ---
+
+    5 exercícios progressivos (básico → desafio).
+
+    [:octicons-arrow-right-24: Exercício 07](../exercicios/exercicio-07.md)
+
+- :material-briefcase-outline: **Projeto**
+
+    ---
+
+    Aplicação prática dos conceitos da aula.
+
+    [:octicons-arrow-right-24: Projeto 07](../projetos/projeto-07.md)
+
+</div>
+
+---
+
+[➡️ Próxima Aula: Aula 08](./aula-08.md){ .md-button .md-button--primary }

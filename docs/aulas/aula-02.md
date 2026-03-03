@@ -171,4 +171,43 @@ if idade >= 18 {
 
 ---
 
-**Próxima Aula**: Chega de verbosidade! Vamos conhecer o **Kotlin**, a linguagem moderna do Android e prima do Swift. [Introdução ao Kotlin](./aula-03.md) 🚀
+## 🔗 Materiais da Aula
+
+<div class="grid cards" markdown>
+- :material-presentation: **Slides**
+
+    ---
+
+    Material visual com diagramas e conceitos-chave.
+
+    [:octicons-arrow-right-24: Slide 02](../slides/slide-02.html)
+
+- :material-help-circle: **Quiz**
+
+    ---
+
+    Teste seu conhecimento com 10 questões interativas.
+
+    [:octicons-arrow-right-24: Quiz 02](../quizzes/quiz-02.md)
+
+- :fontawesome-solid-pencil: **Exercícios**
+
+    ---
+
+    5 exercícios progressivos (básico → desafio).
+
+    [:octicons-arrow-right-24: Exercício 02](../exercicios/exercicio-02.md)
+
+- :material-briefcase-outline: **Projeto**
+
+    ---
+
+    Aplicação prática dos conceitos da aula.
+
+    [:octicons-arrow-right-24: Projeto 02](../projetos/projeto-02.md)
+
+</div>
+
+---
+
+[➡️ Próxima Aula: Aula 03](./aula-03.md){ .md-button .md-button--primary }

@@ -1,0 +1,23 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.0, pytest-8.4.2, pluggy-1.6.0 -- C:\Users\rlp\AppData\Local\pypoetry\Cache\virtualenvs\ads-spec-mobile-nativo-android-quO3Eqp4-py3.13\Scripts\python.exe
+cachedir: .pytest_cache
+baseurl: http://127.0.0.1:8766
+rootdir: D:\SourceCode\REPOS\github.io\ads_spec_mobile_nativo_android
+configfile: pyproject.toml
+plugins: base-url-2.1.0, playwright-0.5.2
+collecting ... collected 6 items / 3 deselected / 3 selected
+run-last-failure: rerun previous 3 failures (skipped 13 files)
+
+tests/test_layout.py::test_homepage_structure[chromium] FAILED           [ 33%]
+tests/test_navigation.py::TestNavigation::test_home_page_loads[chromium] FAILED [ 66%]
+tests/test_navigation.py::TestNavigation::test_plano_ensino_menu_exists[chromium] FAILED [100%]
+
+================================== FAILURES ===================================
+D:\SourceCode\REPOS\github.io\ads_spec_mobile_nativo_android\tests\test_layout.py:30: AssertionError: Page title expected to be 'Desenvolvimento Mobile Nativo - Curso'
+D:\SourceCode\REPOS\github.io\ads_spec_mobile_nativo_android\tests\test_navigation.py:17: AssertionError: Page title expected to be 'Desenvolvimento Mobile Nativo - Curso'
+D:\SourceCode\REPOS\github.io\ads_spec_mobile_nativo_android\tests\test_navigation.py:48: AssertionError: Locator expected to be visible
+=========================== short test summary info ===========================
+FAILED tests/test_layout.py::test_homepage_structure[chromium] - AssertionErr...
+FAILED tests/test_navigation.py::TestNavigation::test_home_page_loads[chromium]
+FAILED tests/test_navigation.py::TestNavigation::test_plano_ensino_menu_exists[chromium]
+====================== 3 failed, 3 deselected in 23.77s =======================

@@ -1,203 +1,228 @@
-# Aula 01 - Introdução ao Mobile 📱
-
-<!-- .slide: data-transition="zoom" -->
+# Aula 01 - Lógica de Programação 🧠
 
 ---
 
-## Bem-vindo ao Mundo Mobile! 🌍
+## Agenda 📅
 
-O mundo hoje é _mobile-first_.
-
-* Mais acesso via smartphone que PC. <!-- .element: class="fragment" -->
-* Bilhões de dispositivos ativos. <!-- .element: class="fragment" -->
-* Ecossistema dinâmico e lucrativo. <!-- .element: class="fragment" -->
-
----
-
-## 🎯 Nossa Agenda de Hoje
-
-1. Panorama do Mercado <!-- .element: class="fragment" -->
-2. Nativo vs Híbrido vs Web <!-- .element: class="fragment" -->
-3. Android vs iOS <!-- .element: class="fragment" -->
-4. Android Studio & Ferramentas <!-- .element: class="fragment" -->
-5. Por onde começar? <!-- .element: class="fragment" -->
+1.  O que é Lógica? <!-- .element: class="fragment" -->
+2.  O Algoritmo <!-- .element: class="fragment" -->
+3.  Pensamento Computacional <!-- .element: class="fragment" -->
+4.  Fluxogramas <!-- .element: class="fragment" -->
+5.  Ferramentas (VisualG) <!-- .element: class="fragment" -->
 
 ---
 
-## 📱 1. Os Três Caminhos
+## 1. O que é Lógica? 🧠
 
-Existem três formas principais de criar um App.
+> "A arte de pensar corretamente."
 
-<!-- .slide: data-transition="slide-in fade-out" -->
-
----
-
-### 🚀 Nativo
-
-Desenvolvido na linguagem "mãe" da plataforma.
-
-* **Android**: Kotlin / Java 🤖 <!-- .element: class="fragment" -->
-* **iOS**: Swift / Objective-C 🍎 <!-- .element: class="fragment" -->
-* **Vantagem**: Performance máxima e acesso total ao hardware. <!-- .element: class="fragment" -->
+- Organização de ideias. <!-- .element: class="fragment" -->
+- Maneira rigorosa de raciocinar. <!-- .element: class="fragment" -->
+- **Não** é apenas para computadores! <!-- .element: class="fragment" -->
+- Usamos no dia a dia sem perceber. <!-- .element: class="fragment" -->
 
 ---
 
-### 🌐 Web (PWA)
+## Lógica no Dia a Dia ☀️
 
-Basicamente um site que se comporta como App.
-
-* **Tecnologias**: HTML, CSS, JS.
-* **Vantagem**: Custo baixo, funciona em tudo.
-* **Desvantagem**: Performance limitada e pouco acesso ao hardware. <!-- .element: class="fragment" -->
-
----
-
-### 🧩 Híbrido / Cross-Platform
-
-Usa um framework para gerar ambas as plataformas.
-
-* **Exemplos**: Flutter, React Native.
-* **Vantagem**: Uma base de código para dois apps.
-* **Desvantagem**: Dependência de terceiros e overhead de performance. <!-- .element: class="fragment" -->
+- Se **chover**, levo guarda-chuva. <!-- .element: class="fragment" -->
+- Se **estiver sol**, vou à praia. <!-- .element: class="fragment" -->
+- Se o **pneu furar**, troco o pneu. <!-- .element: class="fragment" -->
+- **Causa** -> **Efeito**. <!-- .element: class="fragment" -->
 
 ---
 
-## 🤖 2. O Gigante Verde: Android
+## O Computador é BURRO 🤖
 
-O sistema operacional mais usado do planeta.
-
-* Criado pelo Google. <!-- .element: class="fragment" -->
-* Baseado em **Linux**. <!-- .element: class="fragment" -->
-* Aberto e flexível. <!-- .element: class="fragment" -->
+- Ele não "pensa". <!-- .element: class="fragment" -->
+- Ele apenas obedece. <!-- .element: class="fragment" -->
+- Se você explicar errado, ele fará errado. <!-- .element: class="fragment" -->
+- **Programar** = Ensinar o computador. <!-- .element: class="fragment" -->
 
 ---
 
-### Arquitetura Android
+## 2. O Algoritmo 💡
+
+- **Definição**: Sequência de passos finitos e precisos para resolver um problema. <!-- .element: class="fragment" -->
+- **Palavras-chave**: <!-- .element: class="fragment" -->
+    - **Sequência**: A ordem importa. <!-- .element: class="fragment" -->
+    - **Finitos**: Tem que acabar. <!-- .element: class="fragment" -->
+    - **Precisos**: Sem "talvez". <!-- .element: class="fragment" -->
+
+---
+
+## Receita de Bolo 🍰
+
+1.  Quebrar ovos. <!-- .element: class="fragment" -->
+2.  Misturar farinha. <!-- .element: class="fragment" -->
+3.  Assar por 40min. <!-- .element: class="fragment" -->
+4.  Comer. <!-- .element: class="fragment" -->
+
+*Se você "Comer" antes de "Assar", vai dar dor de barriga! (Ordem importa)*
+
+---
+
+## Estrutura Básica 🏗️
+
+Todo algoritmo tem 3 fases:
+
+1.  **Entrada** (Ingredientes). <!-- .element: class="fragment" -->
+2.  **Processamento** (Misturar/Assar). <!-- .element: class="fragment" -->
+3.  **Saída** (Bolo pronto). <!-- .element: class="fragment" -->
+
+---
+
+## 3. Pensamento Computacional 🧩
+
+Os 4 Superpoderes para resolver problemas complexos.
+
+1.  **Decomposição** <!-- .element: class="fragment" -->
+2.  **Reconhecimento de Padrões** <!-- .element: class="fragment" -->
+3.  **Abstração** <!-- .element: class="fragment" -->
+4.  **Algoritmo** <!-- .element: class="fragment" -->
+
+---
+
+### 3.1 Decomposição 🧱
+
+- Quebrar um problema grande em menores. <!-- .element: class="fragment" -->
+- Exemplo: **Construir uma Casa**. <!-- .element: class="fragment" -->
+    - Fazer fundação. <!-- .element: class="fragment" -->
+    - Levantar paredes. <!-- .element: class="fragment" -->
+    - Colocar telhado. <!-- .element: class="fragment" -->
+
+---
+
+### 3.2 Reconhecimento de Padrões 🔍
+
+- Identificar o que já vimos antes. <!-- .element: class="fragment" -->
+- Exemplo: <!-- .element: class="fragment" -->
+    - Dirigir Carro 🚗 <!-- .element: class="fragment" -->
+    - Dirigir Caminhão 🚛 <!-- .element: class="fragment" -->
+    - Padrão: Volante, Pedais, Câmbio. <!-- .element: class="fragment" -->
+
+---
+
+### 3.3 Abstração 🌫️
+
+- Focar no essencial. <!-- .element: class="fragment" -->
+- Ignorar detalhes irrelevantes. <!-- .element: class="fragment" -->
+- Exemplo: "Trocar o pneu". <!-- .element: class="fragment" -->
+    - Importa: Chave de roda, Macaco. <!-- .element: class="fragment" -->
+    - Não importa: Marca da borracha, cor do aro. <!-- .element: class="fragment" -->
+
+---
+
+### 3.4 Algoritmo (Design) 📝
+
+- Escrever o passo a passo final. <!-- .element: class="fragment" -->
+- Juntar tudo o que foi planejado. <!-- .element: class="fragment" -->
+- O plano de execução. <!-- .element: class="fragment" -->
+
+---
+
+## 4. Fluxogramas 🗺️
+
+A linguagem universal dos programadores.
+
+- Desenho > Texto. <!-- .element: class="fragment" -->
+- Padronizado mundialmente. <!-- .element: class="fragment" -->
+
+---
+
+### Símbolos Principais
+
+| Forma | Nome | Função |
+| :---: | :--- | :--- |
+| `([ ... ])` | **Terminador** | Início/Fim |
+| `[ ... ]` | **Processo** | Ação/Cálculo |
+| `/ ... /` | **Dados** | Entrada/Saída |
+| `{ ... }` | **Decisão** | Pergunta (Sim/Não) |
+
+---
+
+### Exemplo: Lâmpada 💡
 
 ```mermaid
-graph TD
-    A[Apps] --> B[Java/Kotlin Framework]
-    B --> C[ART Runtime]
-    C --> D[Hardware Abstraction - HAL]
-    D --> E[Linux Kernel]
+graph TD;
+    A([Início]) --> B{Lâmpada acende?};
+    B -- Não --> C{Plugada?};
+    C -- Não --> D[Plugar];
+    C -- Sim --> E[Trocar Bulbo];
+    B -- Sim --> F([Fim]);
+    D --> F;
+    E --> F;
 ```
 
 ---
 
-## 🍎 3. O Pomar da Apple: iOS
+## 5. VisualG e Portugol 💻
 
-Foco em luxo, fluidez e segurança.
-
-* Criado pela Apple. <!-- .element: class="fragment" -->
-* Sistema Fechado (Darwin/Unix). <!-- .element: class="fragment" -->
-* Consumidores com alto poder aquisitivo. <!-- .element: class="fragment" -->
-
----
-
-### Android vs iOS 🆚
-
-| Recurso | Android | iOS |
-| :--- | :--- | :--- |
-| **Linguagem** | Kotlin | Swift |
-| **IDE** | Android Studio | Xcode |
-| **Loja** | Google Play | App Store |
-| **Taxa** | $25 (Única) | $99 (Anual) |
+- **Portugol**: "Português Estruturado". <!-- .element: class="fragment" -->
+- Uma linguagem feita para **aprender**. <!-- .element: class="fragment" -->
+- Comandos em português. <!-- .element: class="fragment" -->
+- Foco na lógica, não na sintaxe complexa (ainda). <!-- .element: class="fragment" -->
 
 ---
 
-## 🛠️ 4. Sua Oficina: Android Studio
+### Ferramenta: VisualG
 
-A ferramenta oficial para criar apps Android.
-
-* Baseada no IntelliJ IDEA. <!-- .element: class="fragment" -->
-* Emulador integrado. <!-- .element: class="fragment" -->
-* Layout Editor visual. <!-- .element: class="fragment" -->
-
-<!-- .slide: data-background-color="#073b4c" -->
+- Gratuito. <!-- .element: class="fragment" -->
+- Leve. <!-- .element: class="fragment" -->
+- Roda direto no Windows. <!-- .element: class="fragment" -->
+- Mostra a memória do computador. <!-- .element: class="fragment" -->
 
 ---
 
-### ⚠️ Requisitos de Hardware
+### Primeiro Código (Preview)
 
-Para não passar raiva:
-
-* **RAM**: 8GB (Mínimo) / 16GB (Sonho). <!-- .element: class="fragment" -->
-* **Disco**: SSD é OBRIGATÓRIO. <!-- .element: class="fragment" -->
-* **Processador**: i5 ou superior. <!-- .element: class="fragment" -->
-
----
-
-## 📂 5. Anatomia de um Projeto
-
-O que tem dentro das pastas?
-
-```termynal
-$ ls -R app/src/main
-AndroidManifest.xml
-java/ # Código Fonte
-res/  # Recursos (Imagens/Layouts)
+```visualg
+Algoritmo "OlaMundo"
+Inicio
+   Escreval("Olá, Mundo!")
+   Escreval("Eu sou um programador!")
+FimAlgoritmo
 ```
 
----
-
-### O Manifesto 📜
-
-O arquivo `AndroidManifest.xml` é o "RG" do seu App.
-
-* Nome do App. <!-- .element: class="fragment" -->
-* Quais telas existem (Activities). <!-- .element: class="fragment" -->
-* Quais permissões ele precisa (Internet, Câmera). <!-- .element: class="fragment" -->
+> Veremos isso na prática na próxima aula!
 
 ---
 
-## 🧠 6. Por que Nativo?
+## Vamos Praticar? 📝
 
-Frameworks vêm e vão, mas o **Nativo** permanece.
+**Desafio do Lobo/Ovelha/Alface**
 
-> "Quem entende a base, não teme a mudança."
-
-<!-- .slide: data-transition="convex" -->
-
----
-
-## 🆚 Kotlin vs Swift
-
-São linguagens "irmãs" na sintaxe!
-
-```kotlin
-// Kotlin
-val nome = "Ricardo"
-println("Olá $nome")
-```
-
-```swift
-// Swift
-let nome = "Ricardo"
-print("Olá \(nome)")
-```
+- Um barqueiro. <!-- .element: class="fragment" -->
+- Lobo come Ovelha. <!-- .element: class="fragment" -->
+- Ovelha come Alface. <!-- .element: class="fragment" -->
+- Barco só leva 1 passageiro extra. <!-- .element: class="fragment" -->
+- Como atravessar todos? <!-- .element: class="fragment" -->
 
 ---
 
-## 🚀 Desafio de Hoje
+## Solução (Algoritmo)
 
-1. Instalar o **Android Studio**. <!-- .element: class="fragment" -->
-2. Criar seu primeiro projeto "Empty Activity". <!-- .element: class="fragment" -->
-3. Mudar o texto do "Hello World" para seu nome. <!-- .element: class="fragment" -->
-
----
-
-## 🏁 Conclusão
-
-* Mobile é o presente e o futuro. <!-- .element: class="fragment" -->
-* Escolher o caminho Nativo te dá superpoderes. <!-- .element: class="fragment" -->
-* Próxima aula: **Java para Android**. <!-- .element: class="fragment" -->
+1.  Leva Ovelha. Voltou Vazio. <!-- .element: class="fragment" -->
+2.  Leva Lobo. Traz Ovelha. <!-- .element: class="fragment" -->
+3.  Deixa Ovelha. Leva Alface. Voltou Vazio. <!-- .element: class="fragment" -->
+4.  Leva Ovelha. <!-- .element: class="fragment" -->
+5.  FIM. <!-- .element: class="fragment" -->
 
 ---
 
-## ❓ Dúvidas?
+## Resumo ✅
 
-Siga para o canal oficial da disciplina no Teams!
+- Lógica = Pensar certo. <!-- .element: class="fragment" -->
+- Algoritmo = Sequência de passos. <!-- .element: class="fragment" -->
+- 3 Fases: Entrada, Processamento, Saída. <!-- .element: class="fragment" -->
+- Fluxogramas ajudam a desenhar a solução. <!-- .element: class="fragment" -->
 
 ---
 
-### Fim da Aula 01 👋
+## Próxima Aula 🚀
+
+- Configurar o VisualG. <!-- .element: class="fragment" -->
+- Entender **Variáveis** (As caixas da memória). <!-- .element: class="fragment" -->
+- Tipos de Dados (Texto, Número, Lógico). <!-- .element: class="fragment" -->
+
+👉 **Instalem o VisualG!**
