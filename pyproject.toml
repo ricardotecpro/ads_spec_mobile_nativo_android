@@ -46,6 +46,7 @@ audit = "python d:/SourceCode/REPOS/_prompts/scripts/unified_audit.py ."
 test = "pytest tests/ -v"
 serve = "mkdocs serve"
 deploy = "mkdocs gh-deploy --force"
+build = "mkdocs build"
 
 [tool.poetry]
 package-mode = false
