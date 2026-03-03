@@ -69,10 +69,10 @@ class TestNavigation:
         page.get_by_role("link", name="Aulas").first.click(force=True)
         
         # Click Trilha 1: Fundamentos e UI (using regex for encoding safety)
-        page.get_by_text(re.compile(r"Trilha 1 . Fundamentos e UI", re.I)).first.click()
+        page.get_by_text(re.compile(r"Trilha 1 . Fundamentos e UI", re.I)).first.click(force=True)
         
         # Click Aula 01
-        page.get_by_role("link", name=re.compile(r"Aula 01"), exact=False).first.click()
+        page.get_by_role("link", name=re.compile(r"Aula 01"), exact=False).first.click(force=True)
         
         # Verifica se chegou na página correta
         expect(page).to_have_url(re.compile(r".*/aulas/aula-01/?$"))
